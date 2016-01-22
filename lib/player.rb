@@ -1,11 +1,9 @@
 class Player
 
-  def self.male
-    Male.new
-  end
+  attr_reader :free_agent
 
-  def self.female
-    Female.new
+  def initialize
+    @free_agent = true
   end
 
   class Male < Player
@@ -22,11 +20,11 @@ class Player
 
   end
 
-  def suspended?
-
+  def free_agent?
+    @free_agent
   end
 
-  def suspend(number_of_games)
+  def suspended?
 
   end
 
