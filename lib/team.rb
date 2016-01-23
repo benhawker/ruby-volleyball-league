@@ -1,11 +1,16 @@
 class Team
 
+	attr_reader :players
+
+	MAX_PLAYERS = 10
+	MIN_PLAYERS = 7
+
 	def initialize
 		@players = []
 	end
 
 	def add_player(player)
-
+		@players << player
 	end
 
 	private
