@@ -1,9 +1,10 @@
 class Player
 
-  attr_reader :free_agent
+  attr_reader :free_agent, :suspended
 
   def initialize
     @free_agent = true
+    @suspended = false
   end
 
   class Male < Player
@@ -25,7 +26,7 @@ class Player
   end
 
   def suspended?
-
+    @suspended
   end
 
 end
