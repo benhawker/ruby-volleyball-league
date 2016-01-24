@@ -1,6 +1,6 @@
 class Player
 
-  attr_reader :free_agent, :suspended
+  attr_accessor :free_agent, :suspended
 
   def initialize
     @free_agent = true
