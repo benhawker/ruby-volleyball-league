@@ -21,7 +21,7 @@ describe Team do
 		it "raises an exception if the team would be made invalid by the new player" do
 			8.times { team.add_player(male) }
 			2.times { team.add_player(female) }
-			expect { team.add_player(female) }.to raise_error "XXX"
+			expect { team.add_player(female) }.to raise_error "Team at max size already"
 		end
 	end
 
@@ -36,9 +36,9 @@ describe Team do
 			expect(team.valid_size?).to be false
 		end
 
-		it "returns false if size is 11" do
-			11.times { team.add_player(male) }
-			expect(team.valid_size?).to be false
+		it "returns true if size is 10" do
+			10.times { team.add_player(male) }
+			expect(team.valid_size?).to be true
 		end
 	end
 
@@ -61,6 +61,28 @@ describe Team do
 			expect { team.valid_gender_mix? }.to raise_error "Female count too low"
 		end
 	end
+
+	describe "#valid_team?" do
+		it "returns true if size and gender mix is ok" do
+			3.times { team.add_player(male) }
+			4.times { team.add_player(female) }
+			expect(team.valid_team?).to be true
+		end
+
+		it "returns false if size is ok but gender mix is not" do
+			7.times { team.add_player(male) }
+			1.times { team.add_player(female) }
+			expect { team.valid_team? }.to raise_error "Female count too low"
+		end
+
+		it "returns false if size is out of limits but gender mix is ok" do
+			2.times { team.add_player(male) }
+			2.times { team.add_player(female) }
+			puts team.players.length
+			expect(team.valid_team?).to be false
+		end
+	end
+
 
 
 
