@@ -24,7 +24,7 @@ describe Match do
 		it "returns false if eiter of the teams are not valid" do
 			expect(match.both_teams_valid?).to be false
 		end
-
+		
 		xit "returns true if both teams are valid" do
 			expect(match.both_teams_valid?).to be true
 		end
