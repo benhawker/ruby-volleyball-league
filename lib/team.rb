@@ -11,10 +11,11 @@ class Team
 
   def add_player(player)
     raise "Team at max size already" if @players.length > 9
-    #raise "Player is already part of another team" if player.free_agent == false
+    raise "Player is already part of another team" if player.free_agent == false
 
     player.free_agent = false
     @players << player
+    player.team = self
   end
 
   def valid_team?

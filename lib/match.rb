@@ -13,7 +13,7 @@ class Match
   end
 
   def both_teams_valid?
-    @team_one.valid_team? && @team_two.valid_team?
+    team_one.valid_team? && team_two.valid_team?
   end
 
   private

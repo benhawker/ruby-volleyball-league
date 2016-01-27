@@ -1,10 +1,11 @@
 class Player
 
-  attr_accessor :free_agent, :suspended
+  attr_accessor :free_agent, :suspended, :team
 
   def initialize
     @free_agent = true
     @suspended = false
+    @team = nil
   end
 
   class Male < Player
